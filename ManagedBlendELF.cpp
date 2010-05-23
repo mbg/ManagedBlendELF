@@ -8,7 +8,7 @@ bool BlendELF::InitWithHWND(int width, int height, String^ title, bool fullscree
 		return elfInitWithHWND(width, height, toUnmanagedString(title), fullscreen, (HWND)hwnd);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -17,7 +17,7 @@ unsigned int BlendELF::GetWindowHWND() {
 		return (unsigned int)elfGetWindowHWND();
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -26,7 +26,7 @@ bool BlendELF::IsObject(EngineHandle^ obj) {
 		return elfIsObject(*obj->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -35,7 +35,7 @@ ObjectType BlendELF::GetObjectType(EngineHandle^ obj) {
 		return (ObjectType)elfGetObjectType(*obj->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -44,7 +44,7 @@ int BlendELF::GetObjectRefCount(EngineHandle^ obj) {
 		return elfGetObjectRefCount(*obj->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -53,7 +53,7 @@ int BlendELF::GetGlobalRefCount() {
 		return elfGetGlobalRefCount();
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -62,7 +62,7 @@ int BlendELF::GetGlobalObjCount() {
 		return elfGetGlobalObjCount();
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -71,7 +71,7 @@ bool BlendELF::IsActor(EngineHandle^ obj) {
 		return elfIsActor(*obj->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -80,7 +80,7 @@ bool BlendELF::IsGuiObject(EngineHandle^ obj) {
 		return elfIsGuiObject(*obj->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -91,7 +91,7 @@ EngineHandle^ BlendELF::CreateList() {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -100,7 +100,7 @@ int BlendELF::GetListLength(EngineHandle^ list) {
 		return elfGetListLength(*list->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -109,7 +109,7 @@ void BlendELF::InsertToList(EngineHandle^ list, int idx, EngineHandle^ obj) {
 		elfInsertToList(*list->GetHandle(), idx, *obj->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -118,7 +118,7 @@ void BlendELF::AppendToList(EngineHandle^ list, EngineHandle^ obj) {
 		elfAppendToList(*list->GetHandle(), *obj->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -127,7 +127,7 @@ bool BlendELF::RemoveFromList(EngineHandle^ list, EngineHandle^ obj) {
 		return elfRemoveFromList(*list->GetHandle(), *obj->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -138,7 +138,7 @@ EngineHandle^ BlendELF::GetItemFromList(EngineHandle^ list, int idx) {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -149,7 +149,7 @@ EngineHandle^ BlendELF::BeginList(EngineHandle^ list) {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -160,7 +160,7 @@ EngineHandle^ BlendELF::NextInList(EngineHandle^ list) {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -171,7 +171,7 @@ EngineHandle^ BlendELF::RbeginList(EngineHandle^ list) {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -182,7 +182,7 @@ EngineHandle^ BlendELF::RnextInList(EngineHandle^ list) {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -191,7 +191,7 @@ void BlendELF::SeekList(EngineHandle^ list, EngineHandle^ ptr) {
 		elfSeekList(*list->GetHandle(), *ptr->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -200,7 +200,7 @@ void BlendELF::RseekList(EngineHandle^ list, EngineHandle^ ptr) {
 		elfRseekList(*list->GetHandle(), *ptr->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -209,7 +209,7 @@ void BlendELF::SetTitle(String^ title) {
 		elfSetTitle(toUnmanagedString(title));
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -218,7 +218,7 @@ int BlendELF::GetWindowWidth() {
 		return elfGetWindowWidth();
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -227,7 +227,7 @@ int BlendELF::GetWindowHeight() {
 		return elfGetWindowHeight();
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -236,7 +236,7 @@ bool BlendELF::IsFullscreen() {
 		return elfIsFullscreen();
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -245,7 +245,7 @@ String^ BlendELF::GetTitle() {
 		return gcnew String(elfGetTitle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -254,7 +254,7 @@ int BlendELF::GetMultisamples() {
 		return elfGetMultisamples();
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -263,7 +263,7 @@ double BlendELF::GetTime() {
 		return elfGetTime();
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -272,7 +272,7 @@ bool BlendELF::IsWindowOpened() {
 		return elfIsWindowOpened();
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -283,7 +283,7 @@ Vector2i^ BlendELF::GetMousePosition() {
 		return gcnew Vector2i(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -294,7 +294,7 @@ Vector2i^ BlendELF::GetMouseForce() {
 		return gcnew Vector2i(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -303,7 +303,7 @@ void BlendELF::SetMousePosition(int x, int y) {
 		elfSetMousePosition(x, y);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -312,7 +312,7 @@ void BlendELF::HideMouse(bool hide) {
 		elfHideMouse(hide);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -321,7 +321,7 @@ bool BlendELF::IsMouseHidden() {
 		return elfIsMouseHidden();
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -330,7 +330,7 @@ int BlendELF::GetMouseWheel() {
 		return elfGetMouseWheel();
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -339,7 +339,7 @@ EngineButtonState BlendELF::GetMouseButtonState(MouseButton button) {
 		return (EngineButtonState)elfGetMouseButtonState((int)button);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -348,7 +348,7 @@ EngineKeyState BlendELF::GetKeyState(EngineKey key) {
 		return (EngineKeyState)elfGetKeyState((int)key);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -357,7 +357,7 @@ bool BlendELF::GetJoystickPresent(int joy) {
 		return elfGetJoystickPresent(joy);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -368,7 +368,7 @@ Vector2f^ BlendELF::GetJoystickAxis(int joy) {
 		return gcnew Vector2f(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -377,7 +377,7 @@ int BlendELF::GetJoystickButtonState(int joy, int but) {
 		return elfGetJoystickButtonState(joy, but);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -386,7 +386,7 @@ int BlendELF::GetEventCount() {
 		return elfGetEventCount();
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -397,7 +397,7 @@ EngineHandle^ BlendELF::GetEvent(int idx) {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -408,7 +408,7 @@ EngineHandle^ BlendELF::ReadGameConfig(String^ file_path) {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -417,7 +417,7 @@ int BlendELF::GetGameConfigWindowWidth(EngineHandle^ config) {
 		return elfGetGameConfigWindowWidth(*config->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -426,7 +426,7 @@ int BlendELF::GetGameConfigWindowHeight(EngineHandle^ config) {
 		return elfGetGameConfigWindowHeight(*config->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -435,7 +435,7 @@ bool BlendELF::GetGameConfigFullscreen(EngineHandle^ config) {
 		return elfGetGameConfigFullscreen(*config->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -444,7 +444,7 @@ float BlendELF::GetGameConfigTextureAnisotropy(EngineHandle^ config) {
 		return elfGetGameConfigTextureAnisotropy(*config->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -453,7 +453,7 @@ int BlendELF::GetGameConfigShadowMapSize(EngineHandle^ config) {
 		return elfGetGameConfigShadowMapSize(*config->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -462,7 +462,7 @@ String^ BlendELF::GetGameConfigStart(EngineHandle^ config) {
 		return gcnew String(elfGetGameConfigStart(*config->GetHandle()));
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -471,7 +471,7 @@ bool BlendELF::Init(int width, int height, String^ title, bool fullscreen) {
 		return elfInit(width, height, toUnmanagedString(title), fullscreen);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -480,7 +480,25 @@ bool BlendELF::InitWithConfig(String^ file_path) {
 		return elfInitWithConfig(toUnmanagedString(file_path));
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
+	}
+}
+
+void BlendELF::Deinit() {
+	try {
+		elfDeinit();
+	}
+	catch(...) {
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
+	}
+}
+
+String^ BlendELF::GetPlatform() {
+	try {
+		return gcnew String(elfGetPlatform());
+	}
+	catch(...) {
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -489,7 +507,7 @@ int BlendELF::GetVersionMajor() {
 		return elfGetVersionMajor();
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -498,7 +516,7 @@ int BlendELF::GetVersionMinor() {
 		return elfGetVersionMinor();
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -507,7 +525,7 @@ String^ BlendELF::GetVersionRelease() {
 		return gcnew String(elfGetVersionRelease());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -516,7 +534,25 @@ String^ BlendELF::GetVersion() {
 		return gcnew String(elfGetVersion());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
+	}
+}
+
+String^ BlendELF::GetErrorString() {
+	try {
+		return gcnew String(elfGetErrorString());
+	}
+	catch(...) {
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
+	}
+}
+
+int BlendELF::GetError() {
+	try {
+		return elfGetError();
+	}
+	catch(...) {
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -525,7 +561,7 @@ bool BlendELF::Run() {
 		return elfRun();
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -534,7 +570,7 @@ void BlendELF::Quit() {
 		elfQuit();
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -543,7 +579,7 @@ void BlendELF::SetF10Exit(bool exit) {
 		elfSetF10Exit(exit);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -552,7 +588,7 @@ bool BlendELF::GetF10Exit() {
 		return elfGetF10Exit();
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -563,7 +599,7 @@ EngineHandle^ BlendELF::LoadScene(String^ file_path) {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -572,7 +608,7 @@ void BlendELF::SetScene(EngineHandle^ scene) {
 		elfSetScene(*scene->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -583,7 +619,7 @@ EngineHandle^ BlendELF::GetScene() {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -592,7 +628,7 @@ void BlendELF::SetGui(EngineHandle^ gui) {
 		elfSetGui(*gui->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -603,7 +639,7 @@ EngineHandle^ BlendELF::GetGui() {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -612,7 +648,7 @@ float BlendELF::GetSync() {
 		return elfGetSync();
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -621,7 +657,7 @@ int BlendELF::GetFps() {
 		return elfGetFps();
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -630,7 +666,7 @@ bool BlendELF::SaveScreenShot(String^ file_path) {
 		return elfSaveScreenShot(toUnmanagedString(file_path));
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -639,7 +675,7 @@ void BlendELF::SetFpsLimit(int fps_limit) {
 		elfSetFpsLimit(fps_limit);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -648,7 +684,7 @@ int BlendELF::GetFpsLimit() {
 		return elfGetFpsLimit();
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -657,7 +693,7 @@ void BlendELF::SetTickRate(float tick_rate) {
 		elfSetTickRate(tick_rate);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -666,7 +702,7 @@ float BlendELF::GetTickRate() {
 		return elfGetTickRate();
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -675,7 +711,7 @@ void BlendELF::SetSpeed(float speed) {
 		elfSetSpeed(speed);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -684,7 +720,7 @@ float BlendELF::GetSpeed() {
 		return elfGetSpeed();
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -693,7 +729,7 @@ void BlendELF::SetTextureAnisotropy(float anisotropy) {
 		elfSetTextureAnisotropy(anisotropy);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -702,7 +738,7 @@ float BlendELF::GetTextureAnisotropy() {
 		return elfGetTextureAnisotropy();
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -711,7 +747,7 @@ void BlendELF::SetShadowMapSize(int size) {
 		elfSetShadowMapSize(size);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -720,7 +756,7 @@ int BlendELF::GetShadowMapSize() {
 		return elfGetShadowMapSize();
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -729,7 +765,7 @@ int BlendELF::GetPolygonsRendered() {
 		return elfGetPolygonsRendered();
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -738,7 +774,7 @@ void BlendELF::SetBloom(float threshold) {
 		elfSetBloom(threshold);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -747,7 +783,7 @@ void BlendELF::DisableBloom() {
 		elfDisableBloom();
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -756,7 +792,7 @@ float BlendELF::GetBloomThreshold() {
 		return elfGetBloomThreshold();
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -765,7 +801,7 @@ void BlendELF::SetDof(float focal_range, float focal_distance) {
 		elfSetDof(focal_range, focal_distance);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -774,7 +810,7 @@ void BlendELF::DisableDof() {
 		elfDisableDof();
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -783,7 +819,7 @@ float BlendELF::GetDofFocalRange() {
 		return elfGetDofFocalRange();
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -792,7 +828,7 @@ float BlendELF::GetDofFocalDistance() {
 		return elfGetDofFocalDistance();
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -801,7 +837,7 @@ void BlendELF::SetSsao(float amount) {
 		elfSetSsao(amount);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -810,7 +846,7 @@ void BlendELF::DisableSsao() {
 		elfDisableSsao();
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -819,7 +855,7 @@ float BlendELF::GetSsaoAmount() {
 		return elfGetSsaoAmount();
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -828,7 +864,7 @@ void BlendELF::SetLightShafts(float intensity) {
 		elfSetLightShafts(intensity);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -837,7 +873,7 @@ void BlendELF::DisableLightShafts() {
 		elfDisableLightShafts();
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -846,7 +882,7 @@ float BlendELF::GetLightShaftsInteisity() {
 		return elfGetLightShaftsInteisity();
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -855,7 +891,7 @@ bool BlendELF::IsBloom() {
 		return elfIsBloom();
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -864,7 +900,7 @@ bool BlendELF::IsSsao() {
 		return elfIsSsao();
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -873,7 +909,7 @@ bool BlendELF::IsDof() {
 		return elfIsDof();
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -882,7 +918,7 @@ bool BlendELF::IsLightShafts() {
 		return elfIsLightShafts();
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -891,7 +927,7 @@ void BlendELF::SetOcclusionCulling(bool cull) {
 		elfSetOcclusionCulling(cull);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -900,7 +936,7 @@ bool BlendELF::IsOcclusionCulling() {
 		return elfIsOcclusionCulling();
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -909,7 +945,7 @@ void BlendELF::SetDebugDraw(bool debug_draw) {
 		elfSetDebugDraw(debug_draw);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -918,7 +954,7 @@ bool BlendELF::IsDebugDraw() {
 		return elfIsDebugDraw();
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -929,7 +965,7 @@ EngineHandle^ BlendELF::GetActor() {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -940,7 +976,7 @@ Vector3f^ BlendELF::CreateVec3f() {
 		return gcnew Vector3f(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -951,7 +987,7 @@ Vector3f^ BlendELF::CreateVec3fFromValues(float x, float y, float z) {
 		return gcnew Vector3f(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -962,7 +998,7 @@ Vector4f^ BlendELF::CreateQua() {
 		return gcnew Vector4f(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -973,7 +1009,7 @@ Vector4f^ BlendELF::CreateQuaFromEuler(float x, float y, float z) {
 		return gcnew Vector4f(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -984,7 +1020,7 @@ Vector3f^ BlendELF::MulQuaVec3f(Vector4f^ qua, Vector3f^ vec) {
 		return gcnew Vector3f(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -995,7 +1031,7 @@ Vector4f^ BlendELF::MulQuaQua(Vector4f^ qua1, Vector4f^ qua2) {
 		return gcnew Vector4f(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1006,7 +1042,7 @@ Vector4f^ BlendELF::GetQuaInverted(Vector4f^ qua) {
 		return gcnew Vector4f(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1017,7 +1053,7 @@ Vector3f^ BlendELF::SubVec3fVec3f(Vector3f^ vec1, Vector3f^ vec2) {
 		return gcnew Vector3f(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1028,7 +1064,7 @@ Vector3f^ BlendELF::AddVec3fVec3f(Vector3f^ vec1, Vector3f^ vec2) {
 		return gcnew Vector3f(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1037,7 +1073,7 @@ float BlendELF::GetVec3fLength(Vector3f^ vec) {
 		return elfGetVec3fLength(*vec->GetVector());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1046,7 +1082,7 @@ bool BlendELF::AboutZero(float val) {
 		return elfAboutZero(val);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1055,7 +1091,7 @@ float BlendELF::FloatAbs(float val) {
 		return elfFloatAbs(val);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1064,7 +1100,7 @@ float BlendELF::FloatMax(float a, float b) {
 		return elfFloatMax(a, b);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1073,7 +1109,7 @@ float BlendELF::RandomFloat() {
 		return elfRandomFloat();
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1082,7 +1118,7 @@ float BlendELF::RandomFloatRange(float min, float max) {
 		return elfRandomFloatRange(min, max);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1091,7 +1127,7 @@ int BlendELF::RandomInt() {
 		return elfRandomInt();
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1100,7 +1136,7 @@ int BlendELF::RandomIntRange(int min, int max) {
 		return elfRandomIntRange(min, max);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1111,7 +1147,7 @@ EngineHandle^ BlendELF::CreateFramePlayer() {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1120,7 +1156,7 @@ void BlendELF::UpdateFramePlayer(EngineHandle^ player) {
 		elfUpdateFramePlayer(*player->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1129,7 +1165,7 @@ void BlendELF::SetFramePlayerFrame(EngineHandle^ player, float frame) {
 		elfSetFramePlayerFrame(*player->GetHandle(), frame);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1138,7 +1174,7 @@ void BlendELF::PlayFramePlayer(EngineHandle^ player, float start, float end, flo
 		elfPlayFramePlayer(*player->GetHandle(), start, end, speed);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1147,7 +1183,7 @@ void BlendELF::LoopFramePlayer(EngineHandle^ player, float start, float end, flo
 		elfLoopFramePlayer(*player->GetHandle(), start, end, speed);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1156,7 +1192,7 @@ void BlendELF::StopFramePlayer(EngineHandle^ player) {
 		elfStopFramePlayer(*player->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1165,7 +1201,7 @@ void BlendELF::PauseFramePlayer(EngineHandle^ player) {
 		elfPauseFramePlayer(*player->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1174,7 +1210,7 @@ void BlendELF::ResumeFramePlayer(EngineHandle^ player) {
 		elfResumeFramePlayer(*player->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1183,7 +1219,7 @@ float BlendELF::GetFramePlayerStart(EngineHandle^ player) {
 		return elfGetFramePlayerStart(*player->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1192,7 +1228,7 @@ float BlendELF::GetFramePlayerEnd(EngineHandle^ player) {
 		return elfGetFramePlayerEnd(*player->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1201,7 +1237,7 @@ float BlendELF::GetFramePlayerSpeed(EngineHandle^ player) {
 		return elfGetFramePlayerSpeed(*player->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1210,7 +1246,7 @@ float BlendELF::GetFramePlayerFrame(EngineHandle^ player) {
 		return elfGetFramePlayerFrame(*player->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1219,7 +1255,7 @@ bool BlendELF::IsFramePlayerPlaying(EngineHandle^ player) {
 		return elfIsFramePlayerPlaying(*player->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1228,7 +1264,7 @@ bool BlendELF::IsFramePlayerPaused(EngineHandle^ player) {
 		return elfIsFramePlayerPaused(*player->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1239,7 +1275,7 @@ EngineHandle^ BlendELF::CreateTimer() {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1248,7 +1284,7 @@ void BlendELF::StartTimer(EngineHandle^ timer) {
 		elfStartTimer(*timer->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1257,7 +1293,7 @@ double BlendELF::GetElapsedTime(EngineHandle^ timer) {
 		return elfGetElapsedTime(*timer->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1268,7 +1304,7 @@ EngineHandle^ BlendELF::CreateTextureFromFile(String^ file_path) {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1277,7 +1313,7 @@ String^ BlendELF::GetTextureName(EngineHandle^ texture) {
 		return gcnew String(elfGetTextureName(*texture->GetHandle()));
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1286,7 +1322,7 @@ String^ BlendELF::GetTextureFilePath(EngineHandle^ texture) {
 		return gcnew String(elfGetTextureFilePath(*texture->GetHandle()));
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1295,7 +1331,7 @@ int BlendELF::GetTextureWidth(EngineHandle^ texture) {
 		return elfGetTextureWidth(*texture->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1304,7 +1340,7 @@ int BlendELF::GetTextureHeight(EngineHandle^ texture) {
 		return elfGetTextureHeight(*texture->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1313,7 +1349,7 @@ TextureFormat BlendELF::GetTextureFormat(EngineHandle^ texture) {
 		return (TextureFormat)elfGetTextureFormat(*texture->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1322,7 +1358,7 @@ TextureDataFormat BlendELF::GetTextureDataFormat(EngineHandle^ texture) {
 		return (TextureDataFormat)elfGetTextureDataFormat(*texture->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1333,7 +1369,7 @@ EngineHandle^ BlendELF::CreateMaterial(String^ name) {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1342,7 +1378,7 @@ void BlendELF::SetMaterialTexture(EngineHandle^ material, int slot, EngineHandle
 		elfSetMaterialTexture(*material->GetHandle(), slot, *texture->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1351,7 +1387,7 @@ void BlendELF::SetMaterialTextureType(EngineHandle^ material, int slot, TextureT
 		elfSetMaterialTextureType(*material->GetHandle(), slot, (int)type);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1360,16 +1396,16 @@ void BlendELF::SetMaterialTextureParallaxScale(EngineHandle^ material, int slot,
 		elfSetMaterialTextureParallaxScale(*material->GetHandle(), slot, scale);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
-void BlendELF::SetMaterialColor(EngineHandle^ material, float r, float g, float b, float a) {
+void BlendELF::SetMaterialDiffuseColor(EngineHandle^ material, float r, float g, float b, float a) {
 	try {
-		elfSetMaterialColor(*material->GetHandle(), r, g, b, a);
+		elfSetMaterialDiffuseColor(*material->GetHandle(), r, g, b, a);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1378,7 +1414,7 @@ void BlendELF::SetMaterialSpecularColor(EngineHandle^ material, float r, float g
 		elfSetMaterialSpecularColor(*material->GetHandle(), r, g, b, a);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1387,7 +1423,7 @@ void BlendELF::SetMaterialAmbientColor(EngineHandle^ material, float r, float g,
 		elfSetMaterialAmbientColor(*material->GetHandle(), r, g, b, a);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1396,7 +1432,7 @@ void BlendELF::SetMaterialSpecularPower(EngineHandle^ material, float power) {
 		elfSetMaterialSpecularPower(*material->GetHandle(), power);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1405,7 +1441,7 @@ void BlendELF::SetMaterialLighting(EngineHandle^ material, bool lighting) {
 		elfSetMaterialLighting(*material->GetHandle(), lighting);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1414,7 +1450,7 @@ String^ BlendELF::GetMaterialName(EngineHandle^ material) {
 		return gcnew String(elfGetMaterialName(*material->GetHandle()));
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1423,7 +1459,7 @@ String^ BlendELF::GetMaterialFilePath(EngineHandle^ material) {
 		return gcnew String(elfGetMaterialFilePath(*material->GetHandle()));
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1434,7 +1470,7 @@ EngineHandle^ BlendELF::GetMaterialTexture(EngineHandle^ material, int slot) {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1443,7 +1479,7 @@ TextureType BlendELF::GetMaterialTextureType(EngineHandle^ material, int slot) {
 		return (TextureType)elfGetMaterialTextureType(*material->GetHandle(), slot);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1452,18 +1488,18 @@ float BlendELF::GetMaterialTextureParallaxScale(EngineHandle^ material, int slot
 		return elfGetMaterialTextureParallaxScale(*material->GetHandle(), slot);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
-EngineColour^ BlendELF::GetMaterialColor(EngineHandle^ material) {
+EngineColour^ BlendELF::GetMaterialDiffuseColor(EngineHandle^ material) {
 	try {
 		elf_color* result = new elf_color();
-		*result = elfGetMaterialColor(*material->GetHandle());
+		*result = elfGetMaterialDiffuseColor(*material->GetHandle());
 		return gcnew EngineColour(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1474,7 +1510,7 @@ EngineColour^ BlendELF::GetMaterialSpecularColor(EngineHandle^ material) {
 		return gcnew EngineColour(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1485,7 +1521,7 @@ EngineColour^ BlendELF::GetMaterialAmbientColor(EngineHandle^ material) {
 		return gcnew EngineColour(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1494,7 +1530,7 @@ float BlendELF::GetMaterialSpecularPower(EngineHandle^ material) {
 		return elfGetMaterialSpecularPower(*material->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1503,7 +1539,7 @@ bool BlendELF::GetMaterialLighting(EngineHandle^ material) {
 		return elfGetMaterialLighting(*material->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1512,7 +1548,7 @@ void BlendELF::AddPointToBezierCurve(EngineHandle^ curve, EngineHandle^ point) {
 		elfAddPointToBezierCurve(*curve->GetHandle(), *point->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1521,7 +1557,7 @@ bool BlendELF::AddCurveToIpo(EngineHandle^ ipo, EngineHandle^ curve) {
 		return elfAddCurveToIpo(*ipo->GetHandle(), *curve->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1532,7 +1568,7 @@ Vector3f^ BlendELF::GetIpoLoc(EngineHandle^ ipo, float x) {
 		return gcnew Vector3f(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1543,7 +1579,7 @@ Vector3f^ BlendELF::GetIpoRot(EngineHandle^ ipo, float x) {
 		return gcnew Vector3f(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1554,7 +1590,7 @@ Vector3f^ BlendELF::GetIpoScale(EngineHandle^ ipo, float x) {
 		return gcnew Vector3f(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1565,7 +1601,99 @@ Vector4f^ BlendELF::GetIpoQua(EngineHandle^ ipo, float x) {
 		return gcnew Vector4f(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
+	}
+}
+
+EngineHandle^ BlendELF::CreateProperty(String^ name) {
+	try {
+		elf_handle* result = new elf_handle();
+		*result = elfCreateProperty(toUnmanagedString(name));
+		return gcnew EngineHandle(result);
+	}
+	catch(...) {
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
+	}
+}
+
+int BlendELF::GetPropertyType(EngineHandle^ property) {
+	try {
+		return elfGetPropertyType(*property->GetHandle());
+	}
+	catch(...) {
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
+	}
+}
+
+int BlendELF::GetPropertyInt(EngineHandle^ property) {
+	try {
+		return elfGetPropertyInt(*property->GetHandle());
+	}
+	catch(...) {
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
+	}
+}
+
+float BlendELF::GetPropertyFloat(EngineHandle^ property) {
+	try {
+		return elfGetPropertyFloat(*property->GetHandle());
+	}
+	catch(...) {
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
+	}
+}
+
+String^ BlendELF::GetPropertyString(EngineHandle^ property) {
+	try {
+		return gcnew String(elfGetPropertyString(*property->GetHandle()));
+	}
+	catch(...) {
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
+	}
+}
+
+bool BlendELF::GetPropertyBool(EngineHandle^ property) {
+	try {
+		return elfGetPropertyBool(*property->GetHandle());
+	}
+	catch(...) {
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
+	}
+}
+
+void BlendELF::SetPropertyInt(EngineHandle^ property, int ival) {
+	try {
+		elfSetPropertyInt(*property->GetHandle(), ival);
+	}
+	catch(...) {
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
+	}
+}
+
+void BlendELF::SetPropertyFloat(EngineHandle^ property, float fval) {
+	try {
+		elfSetPropertyFloat(*property->GetHandle(), fval);
+	}
+	catch(...) {
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
+	}
+}
+
+void BlendELF::SetPropertyString(EngineHandle^ property, String^ sval) {
+	try {
+		elfSetPropertyString(*property->GetHandle(), toUnmanagedString(sval));
+	}
+	catch(...) {
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
+	}
+}
+
+void BlendELF::SetPropertyBool(EngineHandle^ property, bool bval) {
+	try {
+		elfSetPropertyBool(*property->GetHandle(), bval);
+	}
+	catch(...) {
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1574,7 +1702,7 @@ String^ BlendELF::GetActorName(EngineHandle^ actor) {
 		return gcnew String(elfGetActorName(*actor->GetHandle()));
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1583,7 +1711,7 @@ String^ BlendELF::GetActorFilePath(EngineHandle^ actor) {
 		return gcnew String(elfGetActorFilePath(*actor->GetHandle()));
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1594,7 +1722,7 @@ EngineHandle^ BlendELF::GetActorParent(EngineHandle^ actor) {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1603,7 +1731,7 @@ void BlendELF::SetActorParent(EngineHandle^ actor, EngineHandle^ parent) {
 		elfSetActorParent(*actor->GetHandle(), *parent->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1612,7 +1740,7 @@ int BlendELF::GetActorChildCount(EngineHandle^ actor) {
 		return elfGetActorChildCount(*actor->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1623,7 +1751,7 @@ EngineHandle^ BlendELF::GetActorChildByName(EngineHandle^ actor, String^ name) {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1634,7 +1762,7 @@ EngineHandle^ BlendELF::GetActorChildByIndex(EngineHandle^ actor, int idx) {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1643,7 +1771,7 @@ void BlendELF::RemoveActorChildren(EngineHandle^ actor) {
 		elfRemoveActorChildren(*actor->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1654,7 +1782,7 @@ EngineHandle^ BlendELF::GetActorScript(EngineHandle^ actor) {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1663,7 +1791,7 @@ void BlendELF::SetActorScript(EngineHandle^ actor, EngineHandle^ script) {
 		elfSetActorScript(*actor->GetHandle(), *script->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1672,7 +1800,7 @@ void BlendELF::SetActorPosition(EngineHandle^ actor, float x, float y, float z) 
 		elfSetActorPosition(*actor->GetHandle(), x, y, z);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1681,7 +1809,7 @@ void BlendELF::SetActorRotation(EngineHandle^ actor, float x, float y, float z) 
 		elfSetActorRotation(*actor->GetHandle(), x, y, z);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1690,7 +1818,7 @@ void BlendELF::SetActorOrientation(EngineHandle^ actor, float x, float y, float 
 		elfSetActorOrientation(*actor->GetHandle(), x, y, z, w);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1699,7 +1827,7 @@ void BlendELF::RotateActor(EngineHandle^ actor, float x, float y, float z) {
 		elfRotateActor(*actor->GetHandle(), x, y, z);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1708,7 +1836,7 @@ void BlendELF::RotateActorLocal(EngineHandle^ actor, float x, float y, float z) 
 		elfRotateActorLocal(*actor->GetHandle(), x, y, z);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1717,7 +1845,7 @@ void BlendELF::MoveActor(EngineHandle^ actor, float x, float y, float z) {
 		elfMoveActor(*actor->GetHandle(), x, y, z);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1726,7 +1854,7 @@ void BlendELF::MoveActorLocal(EngineHandle^ actor, float x, float y, float z) {
 		elfMoveActorLocal(*actor->GetHandle(), x, y, z);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1737,7 +1865,7 @@ Vector3f^ BlendELF::GetActorPosition(EngineHandle^ actor) {
 		return gcnew Vector3f(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1748,7 +1876,7 @@ Vector3f^ BlendELF::GetActorRotation(EngineHandle^ actor) {
 		return gcnew Vector3f(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1759,7 +1887,52 @@ Vector4f^ BlendELF::GetActorOrientation(EngineHandle^ actor) {
 		return gcnew Vector4f(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
+	}
+}
+
+void BlendELF::SetActorBoundingLengths(EngineHandle^ actor, float x, float y, float z) {
+	try {
+		elfSetActorBoundingLengths(*actor->GetHandle(), x, y, z);
+	}
+	catch(...) {
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
+	}
+}
+
+void BlendELF::SetActorBoundingOffset(EngineHandle^ actor, float x, float y, float z) {
+	try {
+		elfSetActorBoundingOffset(*actor->GetHandle(), x, y, z);
+	}
+	catch(...) {
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
+	}
+}
+
+void BlendELF::SetActorPhysics(EngineHandle^ actor, int shape, float mass) {
+	try {
+		elfSetActorPhysics(*actor->GetHandle(), shape, mass);
+	}
+	catch(...) {
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
+	}
+}
+
+void BlendELF::DisableActorPhysics(EngineHandle^ actor) {
+	try {
+		elfDisableActorPhysics(*actor->GetHandle());
+	}
+	catch(...) {
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
+	}
+}
+
+void BlendELF::SetActorAnisotropicFriction(EngineHandle^ actor, float x, float y, float z) {
+	try {
+		elfSetActorAnisotropicFriction(*actor->GetHandle(), x, y, z);
+	}
+	catch(...) {
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1768,7 +1941,7 @@ void BlendELF::SetActorDamping(EngineHandle^ actor, float lin_damp, float ang_da
 		elfSetActorDamping(*actor->GetHandle(), lin_damp, ang_damp);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1777,7 +1950,7 @@ void BlendELF::SetActorSleepThresholds(EngineHandle^ actor, float lin_thrs, floa
 		elfSetActorSleepThresholds(*actor->GetHandle(), lin_thrs, ang_thrs);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1786,7 +1959,7 @@ void BlendELF::SetActorRestitution(EngineHandle^ actor, float restitution) {
 		elfSetActorRestitution(*actor->GetHandle(), restitution);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1795,7 +1968,7 @@ void BlendELF::AddForceToActor(EngineHandle^ actor, float x, float y, float z) {
 		elfAddForceToActor(*actor->GetHandle(), x, y, z);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1804,7 +1977,7 @@ void BlendELF::AddTorqueToActor(EngineHandle^ actor, float x, float y, float z) 
 		elfAddTorqueToActor(*actor->GetHandle(), x, y, z);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1813,7 +1986,7 @@ void BlendELF::SetActorLinearVelocity(EngineHandle^ actor, float x, float y, flo
 		elfSetActorLinearVelocity(*actor->GetHandle(), x, y, z);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1822,7 +1995,7 @@ void BlendELF::SetActorAngularVelocity(EngineHandle^ actor, float x, float y, fl
 		elfSetActorAngularVelocity(*actor->GetHandle(), x, y, z);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1831,7 +2004,7 @@ void BlendELF::SetActorLinearFactor(EngineHandle^ actor, float x, float y, float
 		elfSetActorLinearFactor(*actor->GetHandle(), x, y, z);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1840,7 +2013,47 @@ void BlendELF::SetActorAngularFactor(EngineHandle^ actor, float x, float y, floa
 		elfSetActorAngularFactor(*actor->GetHandle(), x, y, z);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
+	}
+}
+
+Vector3f^ BlendELF::GetActorBoundingLengths(EngineHandle^ actor) {
+	try {
+		elf_vec3f* result = new elf_vec3f();
+		*result = elfGetActorBoundingLengths(*actor->GetHandle());
+		return gcnew Vector3f(result);
+	}
+	catch(...) {
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
+	}
+}
+
+Vector3f^ BlendELF::GetActorBoundingOffset(EngineHandle^ actor) {
+	try {
+		elf_vec3f* result = new elf_vec3f();
+		*result = elfGetActorBoundingOffset(*actor->GetHandle());
+		return gcnew Vector3f(result);
+	}
+	catch(...) {
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
+	}
+}
+
+int BlendELF::GetActorPhysicsShape(EngineHandle^ actor) {
+	try {
+		return elfGetActorPhysicsShape(*actor->GetHandle());
+	}
+	catch(...) {
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
+	}
+}
+
+float BlendELF::GetActorPhysicsMass(EngineHandle^ actor) {
+	try {
+		return elfGetActorPhysicsMass(*actor->GetHandle());
+	}
+	catch(...) {
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1851,7 +2064,7 @@ Vector3f^ BlendELF::GetActorLinearVelocity(EngineHandle^ actor) {
 		return gcnew Vector3f(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1862,7 +2075,7 @@ Vector3f^ BlendELF::GetActorAngularVelocity(EngineHandle^ actor) {
 		return gcnew Vector3f(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1873,7 +2086,7 @@ Vector3f^ BlendELF::GetActorLinearFactor(EngineHandle^ actor) {
 		return gcnew Vector3f(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1884,7 +2097,18 @@ Vector3f^ BlendELF::GetActorAngularFactor(EngineHandle^ actor) {
 		return gcnew Vector3f(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
+	}
+}
+
+Vector3f^ BlendELF::GetActorAnisotropicFriction(EngineHandle^ actor) {
+	try {
+		elf_vec3f* result = new elf_vec3f();
+		*result = elfGetActorAnisotropicFriction(*actor->GetHandle());
+		return gcnew Vector3f(result);
+	}
+	catch(...) {
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1893,7 +2117,7 @@ float BlendELF::GetActorLinearDamping(EngineHandle^ actor) {
 		return elfGetActorLinearDamping(*actor->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1902,7 +2126,7 @@ float BlendELF::GetActorAngularDamping(EngineHandle^ actor) {
 		return elfGetActorAngularDamping(*actor->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1911,7 +2135,7 @@ float BlendELF::GetActorLinearSleepThreshold(EngineHandle^ actor) {
 		return elfGetActorLinearSleepThreshold(*actor->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1920,7 +2144,7 @@ float BlendELF::GetActorAngularSleepThreshold(EngineHandle^ actor) {
 		return elfGetActorAngularSleepThreshold(*actor->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1929,7 +2153,7 @@ float BlendELF::GetActorRestitution(EngineHandle^ actor) {
 		return elfGetActorRestitution(*actor->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1940,7 +2164,7 @@ EngineHandle^ BlendELF::AddHingeJointToActor(EngineHandle^ actor, EngineHandle^ 
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1951,7 +2175,7 @@ EngineHandle^ BlendELF::AddBallJointToActor(EngineHandle^ actor, EngineHandle^ a
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1962,7 +2186,7 @@ EngineHandle^ BlendELF::AddConeTwistJointToActor(EngineHandle^ actor, EngineHand
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1973,7 +2197,7 @@ EngineHandle^ BlendELF::GetActorJointByName(EngineHandle^ actor, String^ name) {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1984,7 +2208,7 @@ EngineHandle^ BlendELF::GetActorJointByIndex(EngineHandle^ actor, int idx) {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -1993,7 +2217,7 @@ bool BlendELF::RemoveActorJointByName(EngineHandle^ actor, String^ name) {
 		return elfRemoveActorJointByName(*actor->GetHandle(), toUnmanagedString(name));
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2002,7 +2226,7 @@ bool BlendELF::RemoveActorJointByIndex(EngineHandle^ actor, int idx) {
 		return elfRemoveActorJointByIndex(*actor->GetHandle(), idx);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2011,7 +2235,7 @@ bool BlendELF::RemoveActorJointByObject(EngineHandle^ actor, EngineHandle^ joint
 		return elfRemoveActorJointByObject(*actor->GetHandle(), *joint->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2020,7 +2244,7 @@ void BlendELF::SetActorIpoFrame(EngineHandle^ actor, float frame) {
 		elfSetActorIpoFrame(*actor->GetHandle(), frame);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2029,7 +2253,7 @@ void BlendELF::SetActorHierarchyIpoFrame(EngineHandle^ actor, float frame) {
 		elfSetActorHierarchyIpoFrame(*actor->GetHandle(), frame);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2038,7 +2262,7 @@ void BlendELF::PlayActorIpo(EngineHandle^ actor, float start, float end, float s
 		elfPlayActorIpo(*actor->GetHandle(), start, end, speed);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2047,7 +2271,7 @@ void BlendELF::LoopActorIpo(EngineHandle^ actor, float start, float end, float s
 		elfLoopActorIpo(*actor->GetHandle(), start, end, speed);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2056,7 +2280,7 @@ void BlendELF::StopActorIpo(EngineHandle^ actor) {
 		elfStopActorIpo(*actor->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2065,7 +2289,7 @@ void BlendELF::PauseActorIpo(EngineHandle^ actor) {
 		elfPauseActorIpo(*actor->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2074,7 +2298,7 @@ void BlendELF::ResumeActorIpo(EngineHandle^ actor) {
 		elfResumeActorIpo(*actor->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2083,7 +2307,7 @@ float BlendELF::GetActorIpoStart(EngineHandle^ actor) {
 		return elfGetActorIpoStart(*actor->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2092,7 +2316,7 @@ float BlendELF::GetActorIpoEnd(EngineHandle^ actor) {
 		return elfGetActorIpoEnd(*actor->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2101,7 +2325,7 @@ float BlendELF::GetActorIpoSpeed(EngineHandle^ actor) {
 		return elfGetActorIpoSpeed(*actor->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2110,7 +2334,7 @@ float BlendELF::GetActorIpoFrame(EngineHandle^ actor) {
 		return elfGetActorIpoFrame(*actor->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2119,7 +2343,7 @@ bool BlendELF::IsActorIpoPlaying(EngineHandle^ actor) {
 		return elfIsActorIpoPlaying(*actor->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2128,7 +2352,7 @@ bool BlendELF::IsActorIpoPaused(EngineHandle^ actor) {
 		return elfIsActorIpoPaused(*actor->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2137,7 +2361,7 @@ int BlendELF::GetActorCollisionCount(EngineHandle^ actor) {
 		return elfGetActorCollisionCount(*actor->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2148,7 +2372,83 @@ EngineHandle^ BlendELF::GetActorCollision(EngineHandle^ actor, int idx) {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
+	}
+}
+
+int BlendELF::GetActorPropertyCount(EngineHandle^ actor) {
+	try {
+		return elfGetActorPropertyCount(*actor->GetHandle());
+	}
+	catch(...) {
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
+	}
+}
+
+void BlendELF::AddPropertyToActor(EngineHandle^ actor, EngineHandle^ property) {
+	try {
+		elfAddPropertyToActor(*actor->GetHandle(), *property->GetHandle());
+	}
+	catch(...) {
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
+	}
+}
+
+EngineHandle^ BlendELF::GetActorPropertyByName(EngineHandle^ actor, String^ name) {
+	try {
+		elf_handle* result = new elf_handle();
+		*result = elfGetActorPropertyByName(*actor->GetHandle(), toUnmanagedString(name));
+		return gcnew EngineHandle(result);
+	}
+	catch(...) {
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
+	}
+}
+
+EngineHandle^ BlendELF::GetActorPropertyByIndex(EngineHandle^ actor, int idx) {
+	try {
+		elf_handle* result = new elf_handle();
+		*result = elfGetActorPropertyByIndex(*actor->GetHandle(), idx);
+		return gcnew EngineHandle(result);
+	}
+	catch(...) {
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
+	}
+}
+
+bool BlendELF::RemoveActorPropertyByName(EngineHandle^ actor, String^ name) {
+	try {
+		return elfRemoveActorPropertyByName(*actor->GetHandle(), toUnmanagedString(name));
+	}
+	catch(...) {
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
+	}
+}
+
+bool BlendELF::RemoveActorPropertyByIndex(EngineHandle^ actor, int idx) {
+	try {
+		return elfRemoveActorPropertyByIndex(*actor->GetHandle(), idx);
+	}
+	catch(...) {
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
+	}
+}
+
+bool BlendELF::RemoveActorPropertyByObject(EngineHandle^ actor, EngineHandle^ property) {
+	try {
+		return elfRemoveActorPropertyByObject(*actor->GetHandle(), *property->GetHandle());
+	}
+	catch(...) {
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
+	}
+}
+
+void BlendELF::RemoveActorProperties(EngineHandle^ actor) {
+	try {
+		elfRemoveActorProperties(*actor->GetHandle());
+	}
+	catch(...) {
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2157,7 +2457,7 @@ void BlendELF::SetActorSelected(EngineHandle^ actor, bool selected) {
 		elfSetActorSelected(*actor->GetHandle(), selected);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2166,7 +2466,7 @@ bool BlendELF::GetActorSelected(EngineHandle^ actor) {
 		return elfGetActorSelected(*actor->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2177,7 +2477,7 @@ EngineHandle^ BlendELF::CreateCamera(String^ name) {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2186,7 +2486,7 @@ void BlendELF::SetCameraViewport(EngineHandle^ camera, int x, int y, int width, 
 		elfSetCameraViewport(*camera->GetHandle(), x, y, width, height);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2195,7 +2495,7 @@ void BlendELF::SetCameraPerspective(EngineHandle^ camera, float fov, float aspec
 		elfSetCameraPerspective(*camera->GetHandle(), fov, aspect, clip_near, clip_far);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2204,7 +2504,7 @@ void BlendELF::SetCameraOrthographic(EngineHandle^ camera, int x, int y, int wid
 		elfSetCameraOrthographic(*camera->GetHandle(), x, y, width, height, clip_near, clip_far);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2213,7 +2513,7 @@ float BlendELF::GetCameraFov(EngineHandle^ camera) {
 		return elfGetCameraFov(*camera->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2222,7 +2522,7 @@ float BlendELF::GetCameraAspect(EngineHandle^ camera) {
 		return elfGetCameraAspect(*camera->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2233,7 +2533,7 @@ Vector2f^ BlendELF::GetCameraClip(EngineHandle^ camera) {
 		return gcnew Vector2f(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2244,7 +2544,7 @@ Vector2f^ BlendELF::GetCameraFarPlaneSize(EngineHandle^ camera) {
 		return gcnew Vector2f(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2255,7 +2555,7 @@ Vector3f^ BlendELF::UnProjectCameraPoint(EngineHandle^ camera, float x, float y,
 		return gcnew Vector3f(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2264,7 +2564,7 @@ String^ BlendELF::GetModelName(EngineHandle^ model) {
 		return gcnew String(elfGetModelName(*model->GetHandle()));
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2273,7 +2573,7 @@ String^ BlendELF::GetModelFilePath(EngineHandle^ model) {
 		return gcnew String(elfGetModelFilePath(*model->GetHandle()));
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2282,7 +2582,7 @@ int BlendELF::GetModelVerticeCount(EngineHandle^ model) {
 		return elfGetModelVerticeCount(*model->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2291,29 +2591,29 @@ int BlendELF::GetModelIndiceCount(EngineHandle^ model) {
 		return elfGetModelIndiceCount(*model->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
-Vector3f^ BlendELF::GetModelAabbMin(EngineHandle^ model) {
+Vector3f^ BlendELF::GetModelBoundingBoxMin(EngineHandle^ model) {
 	try {
 		elf_vec3f* result = new elf_vec3f();
-		*result = elfGetModelAabbMin(*model->GetHandle());
+		*result = elfGetModelBoundingBoxMin(*model->GetHandle());
 		return gcnew Vector3f(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
-Vector3f^ BlendELF::GetModelAabbMax(EngineHandle^ model) {
+Vector3f^ BlendELF::GetModelBoundingBoxMax(EngineHandle^ model) {
 	try {
 		elf_vec3f* result = new elf_vec3f();
-		*result = elfGetModelAabbMax(*model->GetHandle());
+		*result = elfGetModelBoundingBoxMax(*model->GetHandle());
 		return gcnew Vector3f(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2324,7 +2624,7 @@ EngineHandle^ BlendELF::CreateEntity(String^ name) {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2333,7 +2633,7 @@ void BlendELF::SetEntityScale(EngineHandle^ entity, float x, float y, float z) {
 		elfSetEntityScale(*entity->GetHandle(), x, y, z);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2344,7 +2644,7 @@ Vector3f^ BlendELF::GetEntityScale(EngineHandle^ entity) {
 		return gcnew Vector3f(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2353,7 +2653,7 @@ void BlendELF::SetEntityModel(EngineHandle^ entity, EngineHandle^ model) {
 		elfSetEntityModel(*entity->GetHandle(), *model->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2364,7 +2664,7 @@ EngineHandle^ BlendELF::GetEntityModel(EngineHandle^ entity) {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2373,7 +2673,7 @@ int BlendELF::GetEntityMaterialCount(EngineHandle^ entity) {
 		return elfGetEntityMaterialCount(*entity->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2382,7 +2682,7 @@ void BlendELF::AddEntityMaterial(EngineHandle^ entity, EngineHandle^ material) {
 		elfAddEntityMaterial(*entity->GetHandle(), *material->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2391,7 +2691,7 @@ void BlendELF::SetEntityMaterial(EngineHandle^ entity, int idx, EngineHandle^ ma
 		elfSetEntityMaterial(*entity->GetHandle(), idx, *material->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2402,7 +2702,7 @@ EngineHandle^ BlendELF::GetEntityMaterial(EngineHandle^ entity, int idx) {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2411,7 +2711,7 @@ void BlendELF::SetEntityVisible(EngineHandle^ entity, bool visible) {
 		elfSetEntityVisible(*entity->GetHandle(), visible);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2420,7 +2720,7 @@ bool BlendELF::GetEntityVisible(EngineHandle^ entity) {
 		return elfGetEntityVisible(*entity->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2429,7 +2729,7 @@ void BlendELF::SetEntityPhysics(EngineHandle^ entity, CollisionShape type, float
 		elfSetEntityPhysics(*entity->GetHandle(), (int)type, mass);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2438,7 +2738,7 @@ void BlendELF::DisableEntityPhysics(EngineHandle^ entity) {
 		elfDisableEntityPhysics(*entity->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2447,7 +2747,7 @@ void BlendELF::SetEntityArmature(EngineHandle^ entity, EngineHandle^ armature) {
 		elfSetEntityArmature(*entity->GetHandle(), *armature->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2456,7 +2756,7 @@ void BlendELF::SetEntityArmatureFrame(EngineHandle^ entity, float frame) {
 		elfSetEntityArmatureFrame(*entity->GetHandle(), frame);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2465,7 +2765,7 @@ void BlendELF::PlayEntityArmature(EngineHandle^ entity, float start, float end, 
 		elfPlayEntityArmature(*entity->GetHandle(), start, end, speed);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2474,7 +2774,7 @@ void BlendELF::LoopEntityArmature(EngineHandle^ entity, float start, float end, 
 		elfLoopEntityArmature(*entity->GetHandle(), start, end, speed);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2483,7 +2783,7 @@ void BlendELF::StopEntityArmature(EngineHandle^ entity) {
 		elfStopEntityArmature(*entity->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2492,7 +2792,7 @@ void BlendELF::PauseEntityArmature(EngineHandle^ entity) {
 		elfPauseEntityArmature(*entity->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2501,7 +2801,7 @@ void BlendELF::ResumeEntityArmature(EngineHandle^ entity) {
 		elfResumeEntityArmature(*entity->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2510,7 +2810,7 @@ float BlendELF::GetEntityArmatureStart(EngineHandle^ entity) {
 		return elfGetEntityArmatureStart(*entity->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2519,7 +2819,7 @@ float BlendELF::GetEntityArmatureEnd(EngineHandle^ entity) {
 		return elfGetEntityArmatureEnd(*entity->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2528,7 +2828,7 @@ float BlendELF::GetEntityArmatureSpeed(EngineHandle^ entity) {
 		return elfGetEntityArmatureSpeed(*entity->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2537,7 +2837,7 @@ float BlendELF::GetEntityArmatureFrame(EngineHandle^ entity) {
 		return elfGetEntityArmatureFrame(*entity->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2546,7 +2846,7 @@ bool BlendELF::IsEntityArmaturePlaying(EngineHandle^ entity) {
 		return elfIsEntityArmaturePlaying(*entity->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2555,7 +2855,7 @@ bool BlendELF::IsEntityArmaturePaused(EngineHandle^ entity) {
 		return elfIsEntityArmaturePaused(*entity->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2566,7 +2866,7 @@ EngineHandle^ BlendELF::GetEntityArmature(EngineHandle^ entity) {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2575,7 +2875,7 @@ bool BlendELF::GetEntityChanged(EngineHandle^ entity) {
 		return elfGetEntityChanged(*entity->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2586,7 +2886,7 @@ EngineHandle^ BlendELF::CreateLight(String^ name) {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2595,7 +2895,7 @@ LightType BlendELF::GetLightType(EngineHandle^ light) {
 		return (LightType)elfGetLightType(*light->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2606,7 +2906,7 @@ EngineColour^ BlendELF::GetLightColor(EngineHandle^ light) {
 		return gcnew EngineColour(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2615,7 +2915,7 @@ float BlendELF::GetLightDistance(EngineHandle^ light) {
 		return elfGetLightDistance(*light->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2624,7 +2924,7 @@ float BlendELF::GetLightFadeSpeed(EngineHandle^ light) {
 		return elfGetLightFadeSpeed(*light->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2633,7 +2933,7 @@ bool BlendELF::GetLightShadowCaster(EngineHandle^ light) {
 		return elfGetLightShadowCaster(*light->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2642,7 +2942,7 @@ bool BlendELF::GetLightVisible(EngineHandle^ light) {
 		return elfGetLightVisible(*light->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2653,7 +2953,7 @@ Vector2f^ BlendELF::GetLightCone(EngineHandle^ light) {
 		return gcnew Vector2f(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2662,7 +2962,7 @@ bool BlendELF::IsLightShaft(EngineHandle^ light) {
 		return elfIsLightShaft(*light->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2671,7 +2971,7 @@ float BlendELF::GetLightShaftSize(EngineHandle^ light) {
 		return elfGetLightShaftSize(*light->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2680,7 +2980,7 @@ float BlendELF::GetLightShaftIntensity(EngineHandle^ light) {
 		return elfGetLightShaftIntensity(*light->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2689,7 +2989,7 @@ float BlendELF::GetLightShaftFadeOff(EngineHandle^ light) {
 		return elfGetLightShaftFadeOff(*light->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2698,7 +2998,7 @@ void BlendELF::SetLightType(EngineHandle^ light, LightType type) {
 		elfSetLightType(*light->GetHandle(), (int)type);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2707,7 +3007,7 @@ void BlendELF::SetLightColor(EngineHandle^ light, float r, float g, float b, flo
 		elfSetLightColor(*light->GetHandle(), r, g, b, a);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2716,7 +3016,7 @@ void BlendELF::SetLightDistance(EngineHandle^ light, float distance) {
 		elfSetLightDistance(*light->GetHandle(), distance);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2725,7 +3025,7 @@ void BlendELF::SetLightFadeSpeed(EngineHandle^ light, float fade_speed) {
 		elfSetLightFadeSpeed(*light->GetHandle(), fade_speed);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2734,7 +3034,7 @@ void BlendELF::SetLightShadowCaster(EngineHandle^ light, bool shadow_caster) {
 		elfSetLightShadowCaster(*light->GetHandle(), shadow_caster);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2743,7 +3043,7 @@ void BlendELF::SetLightVisible(EngineHandle^ light, bool visible) {
 		elfSetLightVisible(*light->GetHandle(), visible);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2752,7 +3052,7 @@ void BlendELF::SetLightCone(EngineHandle^ light, float inner_cone, float outer_c
 		elfSetLightCone(*light->GetHandle(), inner_cone, outer_cone);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2761,7 +3061,7 @@ void BlendELF::SetLightShaft(EngineHandle^ light, float size, float intensity, f
 		elfSetLightShaft(*light->GetHandle(), size, intensity, fade_off);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2770,7 +3070,7 @@ void BlendELF::DisableLightShaft(EngineHandle^ light) {
 		elfDisableLightShaft(*light->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2781,7 +3081,7 @@ EngineHandle^ BlendELF::CreateBone(String^ name) {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2792,7 +3092,7 @@ EngineHandle^ BlendELF::GetBoneArmature(EngineHandle^ bone) {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2803,7 +3103,7 @@ EngineHandle^ BlendELF::CreateArmature(String^ name) {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2814,7 +3114,7 @@ EngineHandle^ BlendELF::GetBoneFromArmatureByName(String^ name, EngineHandle^ ar
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2825,7 +3125,7 @@ EngineHandle^ BlendELF::GetBoneFromArmatureById(int id, EngineHandle^ armature) 
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2834,7 +3134,7 @@ void BlendELF::AddRootBoneToArmature(EngineHandle^ armature, EngineHandle^ bone)
 		elfAddRootBoneToArmature(*armature->GetHandle(), *bone->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2845,7 +3145,7 @@ EngineHandle^ BlendELF::CreateParticles(String^ name, int max_count) {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2854,7 +3154,7 @@ String^ BlendELF::GetParticlesName(EngineHandle^ particles) {
 		return gcnew String(elfGetParticlesName(*particles->GetHandle()));
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2863,7 +3163,7 @@ String^ BlendELF::GetParticlesFilePath(EngineHandle^ particles) {
 		return gcnew String(elfGetParticlesFilePath(*particles->GetHandle()));
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2872,7 +3172,7 @@ void BlendELF::SetParticlesMaxCount(EngineHandle^ particles, int max_count) {
 		elfSetParticlesMaxCount(*particles->GetHandle(), max_count);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2881,7 +3181,7 @@ void BlendELF::SetParticlesDrawMode(EngineHandle^ particles, ParticleDrawMode mo
 		elfSetParticlesDrawMode(*particles->GetHandle(), (int)mode);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2890,7 +3190,7 @@ void BlendELF::SetParticlesTexture(EngineHandle^ particles, EngineHandle^ textur
 		elfSetParticlesTexture(*particles->GetHandle(), *texture->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2899,7 +3199,16 @@ void BlendELF::SetParticlesModel(EngineHandle^ particles, EngineHandle^ model) {
 		elfSetParticlesModel(*particles->GetHandle(), *model->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
+	}
+}
+
+void BlendELF::SetParticlesEntity(EngineHandle^ particles, EngineHandle^ entity) {
+	try {
+		elfSetParticlesEntity(*particles->GetHandle(), *entity->GetHandle());
+	}
+	catch(...) {
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2908,7 +3217,7 @@ void BlendELF::SetParticlesGravity(EngineHandle^ particles, float x, float y, fl
 		elfSetParticlesGravity(*particles->GetHandle(), x, y, z);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2917,7 +3226,7 @@ void BlendELF::SetParticlesSpawnDelay(EngineHandle^ particles, float delay) {
 		elfSetParticlesSpawnDelay(*particles->GetHandle(), delay);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2926,7 +3235,7 @@ void BlendELF::SetParticlesSize(EngineHandle^ particles, float min, float max) {
 		elfSetParticlesSize(*particles->GetHandle(), min, max);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2935,7 +3244,7 @@ void BlendELF::SetParticlesSizeGrowth(EngineHandle^ particles, float min, float 
 		elfSetParticlesSizeGrowth(*particles->GetHandle(), min, max);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2944,7 +3253,7 @@ void BlendELF::SetParticlesRotation(EngineHandle^ particles, float min, float ma
 		elfSetParticlesRotation(*particles->GetHandle(), min, max);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2953,7 +3262,7 @@ void BlendELF::SetParticlesRotationGrowth(EngineHandle^ particles, float min, fl
 		elfSetParticlesRotationGrowth(*particles->GetHandle(), min, max);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2962,7 +3271,7 @@ void BlendELF::SetParticlesLifeSpan(EngineHandle^ particles, float min, float ma
 		elfSetParticlesLifeSpan(*particles->GetHandle(), min, max);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2971,7 +3280,7 @@ void BlendELF::SetParticlesFadeSpeed(EngineHandle^ particles, float min, float m
 		elfSetParticlesFadeSpeed(*particles->GetHandle(), min, max);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2980,7 +3289,7 @@ void BlendELF::SetParticlesPositionMin(EngineHandle^ particles, float x, float y
 		elfSetParticlesPositionMin(*particles->GetHandle(), x, y, z);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2989,7 +3298,7 @@ void BlendELF::SetParticlesPositionMax(EngineHandle^ particles, float x, float y
 		elfSetParticlesPositionMax(*particles->GetHandle(), x, y, z);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -2998,7 +3307,7 @@ void BlendELF::SetParticlesVelocityMin(EngineHandle^ particles, float x, float y
 		elfSetParticlesVelocityMin(*particles->GetHandle(), x, y, z);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3007,7 +3316,7 @@ void BlendELF::SetParticlesVelocityMax(EngineHandle^ particles, float x, float y
 		elfSetParticlesVelocityMax(*particles->GetHandle(), x, y, z);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3016,7 +3325,7 @@ void BlendELF::SetParticlesColorMin(EngineHandle^ particles, float r, float g, f
 		elfSetParticlesColorMin(*particles->GetHandle(), r, g, b, a);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3025,7 +3334,7 @@ void BlendELF::SetParticlesColorMax(EngineHandle^ particles, float r, float g, f
 		elfSetParticlesColorMax(*particles->GetHandle(), r, g, b, a);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3034,7 +3343,7 @@ int BlendELF::GetParticlesMaxCount(EngineHandle^ particles) {
 		return elfGetParticlesMaxCount(*particles->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3043,7 +3352,7 @@ int BlendELF::GetParticlesCount(EngineHandle^ particles) {
 		return elfGetParticlesCount(*particles->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3052,7 +3361,7 @@ ParticleDrawMode BlendELF::GetParticlesDrawMode(EngineHandle^ particles) {
 		return (ParticleDrawMode)elfGetParticlesDrawMode(*particles->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3063,7 +3372,7 @@ EngineHandle^ BlendELF::GetParticlesTexture(EngineHandle^ particles) {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3074,7 +3383,18 @@ EngineHandle^ BlendELF::GetParticlesModel(EngineHandle^ particles) {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
+	}
+}
+
+EngineHandle^ BlendELF::GetParticlesEntity(EngineHandle^ particles) {
+	try {
+		elf_handle* result = new elf_handle();
+		*result = elfGetParticlesEntity(*particles->GetHandle());
+		return gcnew EngineHandle(result);
+	}
+	catch(...) {
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3085,7 +3405,7 @@ Vector3f^ BlendELF::GetParticlesGravity(EngineHandle^ particles) {
 		return gcnew Vector3f(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3094,7 +3414,7 @@ float BlendELF::GetParticlesSpawnDelay(EngineHandle^ particles) {
 		return elfGetParticlesSpawnDelay(*particles->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3103,7 +3423,7 @@ float BlendELF::GetParticlesSizeMin(EngineHandle^ particles) {
 		return elfGetParticlesSizeMin(*particles->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3112,7 +3432,7 @@ float BlendELF::GetParticlesSizeMax(EngineHandle^ particles) {
 		return elfGetParticlesSizeMax(*particles->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3121,7 +3441,7 @@ float BlendELF::GetParticlesSizeGrowthMin(EngineHandle^ particles) {
 		return elfGetParticlesSizeGrowthMin(*particles->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3130,7 +3450,7 @@ float BlendELF::GetParticlesSizeGrowthMax(EngineHandle^ particles) {
 		return elfGetParticlesSizeGrowthMax(*particles->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3139,7 +3459,7 @@ float BlendELF::GetParticlesRotationMin(EngineHandle^ particles) {
 		return elfGetParticlesRotationMin(*particles->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3148,7 +3468,7 @@ float BlendELF::GetParticlesRotationMax(EngineHandle^ particles) {
 		return elfGetParticlesRotationMax(*particles->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3157,7 +3477,7 @@ float BlendELF::GetParticlesRotationGrowthMin(EngineHandle^ particles) {
 		return elfGetParticlesRotationGrowthMin(*particles->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3166,7 +3486,7 @@ float BlendELF::GetParticlesRotationGrowthMax(EngineHandle^ particles) {
 		return elfGetParticlesRotationGrowthMax(*particles->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3175,7 +3495,7 @@ float BlendELF::GetParticlesLifeSpanMin(EngineHandle^ particles) {
 		return elfGetParticlesLifeSpanMin(*particles->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3184,7 +3504,7 @@ float BlendELF::GetParticlesLifeSpanMax(EngineHandle^ particles) {
 		return elfGetParticlesLifeSpanMax(*particles->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3193,7 +3513,7 @@ float BlendELF::GetParticlesFadeSpeedMin(EngineHandle^ particles) {
 		return elfGetParticlesFadeSpeedMin(*particles->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3202,7 +3522,7 @@ float BlendELF::GetParticlesFadeSpeedMax(EngineHandle^ particles) {
 		return elfGetParticlesFadeSpeedMax(*particles->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3213,7 +3533,7 @@ Vector3f^ BlendELF::GetParticlesPositionMin(EngineHandle^ particles) {
 		return gcnew Vector3f(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3224,7 +3544,7 @@ Vector3f^ BlendELF::GetParticlesPositionMax(EngineHandle^ particles) {
 		return gcnew Vector3f(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3235,7 +3555,7 @@ Vector3f^ BlendELF::GetParticlesVelocityMin(EngineHandle^ particles) {
 		return gcnew Vector3f(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3246,7 +3566,7 @@ Vector3f^ BlendELF::GetParticlesVelocityMax(EngineHandle^ particles) {
 		return gcnew Vector3f(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3257,7 +3577,7 @@ EngineColour^ BlendELF::GetParticlesColorMin(EngineHandle^ particles) {
 		return gcnew EngineColour(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3268,7 +3588,7 @@ EngineColour^ BlendELF::GetParticlesColorMax(EngineHandle^ particles) {
 		return gcnew EngineColour(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3279,7 +3599,7 @@ EngineHandle^ BlendELF::CreateSceneFromFile(String^ file_path) {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3288,7 +3608,7 @@ void BlendELF::SetSceneAmbientColor(EngineHandle^ scene, float r, float g, float
 		elfSetSceneAmbientColor(*scene->GetHandle(), r, g, b, a);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3299,7 +3619,7 @@ EngineColour^ BlendELF::GetSceneAmbientColor(EngineHandle^ scene) {
 		return gcnew EngineColour(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3308,7 +3628,7 @@ void BlendELF::SetSceneGravity(EngineHandle^ scene, float x, float y, float z) {
 		elfSetSceneGravity(*scene->GetHandle(), x, y, z);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3319,7 +3639,7 @@ Vector3f^ BlendELF::GetSceneGravity(EngineHandle^ scene) {
 		return gcnew Vector3f(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3328,7 +3648,7 @@ String^ BlendELF::GetSceneName(EngineHandle^ scene) {
 		return gcnew String(elfGetSceneName(*scene->GetHandle()));
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3337,7 +3657,7 @@ String^ BlendELF::GetSceneFilePath(EngineHandle^ scene) {
 		return gcnew String(elfGetSceneFilePath(*scene->GetHandle()));
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3346,7 +3666,7 @@ int BlendELF::GetSceneCameraCount(EngineHandle^ scene) {
 		return elfGetSceneCameraCount(*scene->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3355,7 +3675,7 @@ int BlendELF::GetSceneEntityCount(EngineHandle^ scene) {
 		return elfGetSceneEntityCount(*scene->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3364,7 +3684,7 @@ int BlendELF::GetSceneLightCount(EngineHandle^ scene) {
 		return elfGetSceneLightCount(*scene->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3373,7 +3693,7 @@ int BlendELF::GetSceneArmatureCount(EngineHandle^ scene) {
 		return elfGetSceneArmatureCount(*scene->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3382,7 +3702,7 @@ int BlendELF::GetSceneParticlesCount(EngineHandle^ scene) {
 		return elfGetSceneParticlesCount(*scene->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3391,7 +3711,7 @@ void BlendELF::AddCameraToScene(EngineHandle^ scene, EngineHandle^ camera) {
 		elfAddCameraToScene(*scene->GetHandle(), *camera->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3400,7 +3720,7 @@ void BlendELF::AddEntityToScene(EngineHandle^ scene, EngineHandle^ entity) {
 		elfAddEntityToScene(*scene->GetHandle(), *entity->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3409,7 +3729,7 @@ void BlendELF::AddLightToScene(EngineHandle^ scene, EngineHandle^ light) {
 		elfAddLightToScene(*scene->GetHandle(), *light->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3418,7 +3738,7 @@ void BlendELF::AddParticlesToScene(EngineHandle^ scene, EngineHandle^ particles)
 		elfAddParticlesToScene(*scene->GetHandle(), *particles->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3427,7 +3747,7 @@ void BlendELF::SetSceneActiveCamera(EngineHandle^ scene, EngineHandle^ camera) {
 		elfSetSceneActiveCamera(*scene->GetHandle(), *camera->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3438,7 +3758,7 @@ EngineHandle^ BlendELF::GetSceneActiveCamera(EngineHandle^ scene) {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3449,7 +3769,7 @@ EngineHandle^ BlendELF::GetSceneRayCastResult(EngineHandle^ scene, float x, floa
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3460,7 +3780,7 @@ EngineHandle^ BlendELF::GetSceneRayCastResults(EngineHandle^ scene, float x, flo
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3471,7 +3791,7 @@ EngineHandle^ BlendELF::GetDebugSceneRayCastResult(EngineHandle^ scene, float x,
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3482,7 +3802,7 @@ EngineHandle^ BlendELF::GetDebugSceneRayCastResults(EngineHandle^ scene, float x
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3493,7 +3813,7 @@ EngineHandle^ BlendELF::GetCameraByIndex(EngineHandle^ scene, int idx) {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3504,7 +3824,7 @@ EngineHandle^ BlendELF::GetEntityByIndex(EngineHandle^ scene, int idx) {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3515,7 +3835,7 @@ EngineHandle^ BlendELF::GetLightByIndex(EngineHandle^ scene, int idx) {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3526,7 +3846,7 @@ EngineHandle^ BlendELF::GetArmatureByIndex(EngineHandle^ scene, int idx) {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3537,7 +3857,7 @@ EngineHandle^ BlendELF::GetParticlesByIndex(EngineHandle^ scene, int idx) {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3548,7 +3868,7 @@ EngineHandle^ BlendELF::GetTextureByName(EngineHandle^ scene, String^ name) {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3559,7 +3879,7 @@ EngineHandle^ BlendELF::GetMaterialByName(EngineHandle^ scene, String^ name) {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3570,7 +3890,7 @@ EngineHandle^ BlendELF::GetModelByName(EngineHandle^ scene, String^ name) {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3581,7 +3901,7 @@ EngineHandle^ BlendELF::GetScriptByName(EngineHandle^ scene, String^ name) {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3592,7 +3912,7 @@ EngineHandle^ BlendELF::GetCameraByName(EngineHandle^ scene, String^ name) {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3603,7 +3923,7 @@ EngineHandle^ BlendELF::GetEntityByName(EngineHandle^ scene, String^ name) {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3614,7 +3934,7 @@ EngineHandle^ BlendELF::GetLightByName(EngineHandle^ scene, String^ name) {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3625,7 +3945,7 @@ EngineHandle^ BlendELF::GetArmatureByName(EngineHandle^ scene, String^ name) {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3636,7 +3956,7 @@ EngineHandle^ BlendELF::GetParticlesByName(EngineHandle^ scene, String^ name) {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3647,7 +3967,7 @@ EngineHandle^ BlendELF::GetActorByName(EngineHandle^ scene, String^ name) {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3656,7 +3976,7 @@ bool BlendELF::RemoveCameraByName(EngineHandle^ scene, String^ name) {
 		return elfRemoveCameraByName(*scene->GetHandle(), toUnmanagedString(name));
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3665,7 +3985,7 @@ bool BlendELF::RemoveEntityByName(EngineHandle^ scene, String^ name) {
 		return elfRemoveEntityByName(*scene->GetHandle(), toUnmanagedString(name));
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3674,7 +3994,7 @@ bool BlendELF::RemoveLightByName(EngineHandle^ scene, String^ name) {
 		return elfRemoveLightByName(*scene->GetHandle(), toUnmanagedString(name));
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3683,7 +4003,7 @@ bool BlendELF::RemoveParticlesByName(EngineHandle^ scene, String^ name) {
 		return elfRemoveParticlesByName(*scene->GetHandle(), toUnmanagedString(name));
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3692,7 +4012,7 @@ bool BlendELF::RemoveCameraByIndex(EngineHandle^ scene, int idx) {
 		return elfRemoveCameraByIndex(*scene->GetHandle(), idx);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3701,7 +4021,7 @@ bool BlendELF::RemoveEntityByIndex(EngineHandle^ scene, int idx) {
 		return elfRemoveEntityByIndex(*scene->GetHandle(), idx);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3710,7 +4030,7 @@ bool BlendELF::RemoveLightByIndex(EngineHandle^ scene, int idx) {
 		return elfRemoveLightByIndex(*scene->GetHandle(), idx);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3719,7 +4039,7 @@ bool BlendELF::RemoveParticlesByIndex(EngineHandle^ scene, int idx) {
 		return elfRemoveParticlesByIndex(*scene->GetHandle(), idx);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3728,7 +4048,7 @@ bool BlendELF::RemoveCameraByObject(EngineHandle^ scene, EngineHandle^ camera) {
 		return elfRemoveCameraByObject(*scene->GetHandle(), *camera->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3737,7 +4057,7 @@ bool BlendELF::RemoveEntityByObject(EngineHandle^ scene, EngineHandle^ entity) {
 		return elfRemoveEntityByObject(*scene->GetHandle(), *entity->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3746,7 +4066,7 @@ bool BlendELF::RemoveLightByObject(EngineHandle^ scene, EngineHandle^ light) {
 		return elfRemoveLightByObject(*scene->GetHandle(), *light->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3755,7 +4075,7 @@ bool BlendELF::RemoveParticlesByObject(EngineHandle^ scene, EngineHandle^ partic
 		return elfRemoveParticlesByObject(*scene->GetHandle(), *particles->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3764,7 +4084,7 @@ bool BlendELF::RemoveActorByObject(EngineHandle^ scene, EngineHandle^ actor) {
 		return elfRemoveActorByObject(*scene->GetHandle(), *actor->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3775,7 +4095,7 @@ EngineHandle^ BlendELF::CreateScript() {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3786,7 +4106,7 @@ EngineHandle^ BlendELF::CreateScriptFromFile(String^ file_path) {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3795,7 +4115,7 @@ String^ BlendELF::GetScriptName(EngineHandle^ script) {
 		return gcnew String(elfGetScriptName(*script->GetHandle()));
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3804,7 +4124,7 @@ String^ BlendELF::GetScriptFilePath(EngineHandle^ script) {
 		return gcnew String(elfGetScriptFilePath(*script->GetHandle()));
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3813,7 +4133,7 @@ void BlendELF::SetScriptText(EngineHandle^ script, String^ text) {
 		elfSetScriptText(*script->GetHandle(), toUnmanagedString(text));
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3822,16 +4142,7 @@ void BlendELF::RunScript(EngineHandle^ script) {
 		elfRunScript(*script->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
-	}
-}
-
-void BlendELF::RunString(String^ str) {
-	try {
-		elfRunString(toUnmanagedString(str));
-	}
-	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3840,7 +4151,16 @@ bool BlendELF::IsScriptError(EngineHandle^ script) {
 		return elfIsScriptError(*script->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
+	}
+}
+
+bool BlendELF::RunString(String^ str) {
+	try {
+		return elfRunString(toUnmanagedString(str));
+	}
+	catch(...) {
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3849,7 +4169,7 @@ void BlendELF::SetAudioVolume(float volume) {
 		elfSetAudioVolume(volume);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3858,7 +4178,7 @@ float BlendELF::GetAudioVolume() {
 		return elfGetAudioVolume();
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3867,7 +4187,7 @@ void BlendELF::SetAudioRolloff(float rolloff) {
 		elfSetAudioRolloff(rolloff);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3876,7 +4196,7 @@ float BlendELF::GetAudioRolloff() {
 		return elfGetAudioRolloff();
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3887,27 +4207,27 @@ EngineHandle^ BlendELF::LoadSound(String^ file_path) {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
-EngineHandle^ BlendELF::CreateSound() {
+EngineHandle^ BlendELF::LoadStreamedSound(String^ file_path) {
 	try {
 		elf_handle* result = new elf_handle();
-		*result = elfCreateSound();
+		*result = elfLoadStreamedSound(toUnmanagedString(file_path));
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
-void BlendELF::DestroySound(EngineHandle^ sound) {
+int BlendELF::GetSoundFileType(EngineHandle^ sound) {
 	try {
-		elfDestroySound(*sound->GetHandle());
+		return elfGetSoundFileType(*sound->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3918,7 +4238,7 @@ EngineHandle^ BlendELF::PlaySound(EngineHandle^ sound, float volume) {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3929,7 +4249,7 @@ EngineHandle^ BlendELF::PlayEntitySound(EngineHandle^ entity, EngineHandle^ soun
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3940,7 +4260,7 @@ EngineHandle^ BlendELF::LoopSound(EngineHandle^ sound, float volume) {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -3951,70 +4271,70 @@ EngineHandle^ BlendELF::LoopEntitySound(EngineHandle^ entity, EngineHandle^ soun
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
-void BlendELF::SetSoundVolume(EngineHandle^ audio_source, float volume) {
+void BlendELF::SetSoundVolume(EngineHandle^ source, float volume) {
 	try {
-		elfSetSoundVolume(*audio_source->GetHandle(), volume);
+		elfSetSoundVolume(*source->GetHandle(), volume);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
-float BlendELF::GetSoundVolume(EngineHandle^ audio_source) {
+float BlendELF::GetSoundVolume(EngineHandle^ source) {
 	try {
-		return elfGetSoundVolume(*audio_source->GetHandle());
+		return elfGetSoundVolume(*source->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
-void BlendELF::PauseSound(EngineHandle^ audio_source) {
+void BlendELF::PauseSound(EngineHandle^ source) {
 	try {
-		elfPauseSound(*audio_source->GetHandle());
+		elfPauseSound(*source->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
-void BlendELF::ResumeSound(EngineHandle^ audio_source) {
+void BlendELF::ResumeSound(EngineHandle^ source) {
 	try {
-		elfResumeSound(*audio_source->GetHandle());
+		elfResumeSound(*source->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
-void BlendELF::StopSound(EngineHandle^ audio_source) {
+void BlendELF::StopSound(EngineHandle^ source) {
 	try {
-		elfStopSound(*audio_source->GetHandle());
+		elfStopSound(*source->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
-bool BlendELF::IsSoundPlaying(EngineHandle^ audio_source) {
+bool BlendELF::IsSoundPlaying(EngineHandle^ source) {
 	try {
-		return elfIsSoundPlaying(*audio_source->GetHandle());
+		return elfIsSoundPlaying(*source->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
-bool BlendELF::IsSoundPaused(EngineHandle^ audio_source) {
+bool BlendELF::IsSoundPaused(EngineHandle^ source) {
 	try {
-		return elfIsSoundPaused(*audio_source->GetHandle());
+		return elfIsSoundPaused(*source->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4025,7 +4345,7 @@ EngineHandle^ BlendELF::GetCollisionActor(EngineHandle^ collision) {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4036,7 +4356,7 @@ Vector3f^ BlendELF::GetCollisionPosition(EngineHandle^ collision) {
 		return gcnew Vector3f(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4047,7 +4367,7 @@ Vector3f^ BlendELF::GetCollisionNormal(EngineHandle^ collision) {
 		return gcnew Vector3f(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4056,7 +4376,7 @@ float BlendELF::GetCollisionDepth(EngineHandle^ collision) {
 		return elfGetCollisionDepth(*collision->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4065,7 +4385,7 @@ String^ BlendELF::GetJointName(EngineHandle^ joint) {
 		return gcnew String(elfGetJointName(*joint->GetHandle()));
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4074,7 +4394,7 @@ JointType BlendELF::GetJointType(EngineHandle^ joint) {
 		return (JointType)elfGetJointType(*joint->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4085,7 +4405,7 @@ EngineHandle^ BlendELF::GetJointActorA(EngineHandle^ joint) {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4096,7 +4416,7 @@ EngineHandle^ BlendELF::GetJointActorB(EngineHandle^ joint) {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4107,7 +4427,7 @@ Vector3f^ BlendELF::GetJointPivot(EngineHandle^ joint) {
 		return gcnew Vector3f(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4118,7 +4438,7 @@ Vector3f^ BlendELF::GetJointAxis(EngineHandle^ joint) {
 		return gcnew Vector3f(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4129,7 +4449,7 @@ EngineHandle^ BlendELF::CreateFontFromFile(String^ file_path, int size) {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4138,7 +4458,7 @@ String^ BlendELF::GetFontName(EngineHandle^ font) {
 		return gcnew String(elfGetFontName(*font->GetHandle()));
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4147,7 +4467,7 @@ String^ BlendELF::GetFontFilePath(EngineHandle^ font) {
 		return gcnew String(elfGetFontFilePath(*font->GetHandle()));
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4156,7 +4476,7 @@ int BlendELF::GetFontSize(EngineHandle^ font) {
 		return elfGetFontSize(*font->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4165,7 +4485,7 @@ int BlendELF::GetStringWidth(EngineHandle^ font, String^ str) {
 		return elfGetStringWidth(*font->GetHandle(), toUnmanagedString(str));
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4174,7 +4494,7 @@ int BlendELF::GetStringHeight(EngineHandle^ font, String^ str) {
 		return elfGetStringHeight(*font->GetHandle(), toUnmanagedString(str));
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4183,7 +4503,7 @@ String^ BlendELF::GetGuiObjectName(EngineHandle^ object) {
 		return gcnew String(elfGetGuiObjectName(*object->GetHandle()));
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4194,7 +4514,7 @@ Vector2i^ BlendELF::GetGuiObjectPosition(EngineHandle^ object) {
 		return gcnew Vector2i(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4205,7 +4525,7 @@ Vector2i^ BlendELF::GetGuiObjectSize(EngineHandle^ object) {
 		return gcnew Vector2i(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4216,7 +4536,7 @@ EngineColour^ BlendELF::GetGuiObjectColor(EngineHandle^ object) {
 		return gcnew EngineColour(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4225,7 +4545,7 @@ bool BlendELF::GetGuiObjectVisible(EngineHandle^ object) {
 		return elfGetGuiObjectVisible(*object->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4236,7 +4556,7 @@ EngineHandle^ BlendELF::GetGuiObjectScript(EngineHandle^ object) {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4245,7 +4565,7 @@ int BlendELF::GetGuiObjectEvent(EngineHandle^ object) {
 		return elfGetGuiObjectEvent(*object->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4254,7 +4574,7 @@ void BlendELF::SetGuiObjectPosition(EngineHandle^ object, float x, float y) {
 		elfSetGuiObjectPosition(*object->GetHandle(), x, y);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4263,7 +4583,7 @@ void BlendELF::SetGuiObjectColor(EngineHandle^ object, float r, float g, float b
 		elfSetGuiObjectColor(*object->GetHandle(), r, g, b, a);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4272,7 +4592,7 @@ void BlendELF::SetGuiObjectVisible(EngineHandle^ object, bool visible) {
 		elfSetGuiObjectVisible(*object->GetHandle(), visible);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4281,7 +4601,7 @@ void BlendELF::SetGuiObjectScript(EngineHandle^ object, EngineHandle^ script) {
 		elfSetGuiObjectScript(*object->GetHandle(), *script->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4292,7 +4612,7 @@ EngineHandle^ BlendELF::CreateLabel(String^ name) {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4303,7 +4623,7 @@ EngineHandle^ BlendELF::GetLabelFont(EngineHandle^ label) {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4312,7 +4632,7 @@ String^ BlendELF::GetLabelText(EngineHandle^ label) {
 		return gcnew String(elfGetLabelText(*label->GetHandle()));
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4321,7 +4641,7 @@ void BlendELF::SetLabelFont(EngineHandle^ label, EngineHandle^ font) {
 		elfSetLabelFont(*label->GetHandle(), *font->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4330,7 +4650,7 @@ void BlendELF::SetLabelText(EngineHandle^ label, String^ text) {
 		elfSetLabelText(*label->GetHandle(), toUnmanagedString(text));
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4341,7 +4661,7 @@ EngineHandle^ BlendELF::CreateButton(String^ name) {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4350,7 +4670,7 @@ bool BlendELF::GetButtonState(EngineHandle^ button) {
 		return elfGetButtonState(*button->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4361,7 +4681,7 @@ EngineHandle^ BlendELF::GetButtonOffTexture(EngineHandle^ button) {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4372,7 +4692,7 @@ EngineHandle^ BlendELF::GetButtonOverTexture(EngineHandle^ button) {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4383,7 +4703,7 @@ EngineHandle^ BlendELF::GetButtonOnTexture(EngineHandle^ button) {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4392,7 +4712,7 @@ void BlendELF::SetButtonOffTexture(EngineHandle^ button, EngineHandle^ off) {
 		elfSetButtonOffTexture(*button->GetHandle(), *off->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4401,7 +4721,7 @@ void BlendELF::SetButtonOverTexture(EngineHandle^ button, EngineHandle^ over) {
 		elfSetButtonOverTexture(*button->GetHandle(), *over->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4410,7 +4730,7 @@ void BlendELF::SetButtonOnTexture(EngineHandle^ button, EngineHandle^ on) {
 		elfSetButtonOnTexture(*button->GetHandle(), *on->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4421,7 +4741,7 @@ EngineHandle^ BlendELF::CreatePicture(String^ name) {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4432,7 +4752,7 @@ EngineHandle^ BlendELF::GetPictureTexture(EngineHandle^ picture) {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4441,7 +4761,7 @@ void BlendELF::SetPictureTexture(EngineHandle^ picture, EngineHandle^ texture) {
 		elfSetPictureTexture(*picture->GetHandle(), *texture->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4452,7 +4772,7 @@ EngineHandle^ BlendELF::CreateTextField(String^ name) {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4463,7 +4783,7 @@ EngineHandle^ BlendELF::GetTextFieldTexture(EngineHandle^ text_field) {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4474,7 +4794,7 @@ EngineHandle^ BlendELF::GetTextFieldFont(EngineHandle^ text_field) {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4485,7 +4805,7 @@ EngineColour^ BlendELF::GetTextFieldTextColor(EngineHandle^ text_field) {
 		return gcnew EngineColour(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4496,7 +4816,7 @@ Vector2i^ BlendELF::GetTextFieldOffset(EngineHandle^ text_field) {
 		return gcnew Vector2i(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4505,7 +4825,7 @@ String^ BlendELF::GetTextFieldText(EngineHandle^ text_field) {
 		return gcnew String(elfGetTextFieldText(*text_field->GetHandle()));
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4514,7 +4834,7 @@ void BlendELF::SetTextFieldTexture(EngineHandle^ text_field, EngineHandle^ textu
 		elfSetTextFieldTexture(*text_field->GetHandle(), *texture->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4523,7 +4843,7 @@ void BlendELF::SetTextFieldFont(EngineHandle^ text_field, EngineHandle^ font) {
 		elfSetTextFieldFont(*text_field->GetHandle(), *font->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4532,7 +4852,7 @@ void BlendELF::SetTextFieldTextColor(EngineHandle^ text_field, float r, float g,
 		elfSetTextFieldTextColor(*text_field->GetHandle(), r, g, b, a);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4541,7 +4861,7 @@ void BlendELF::SetTextFieldOffset(EngineHandle^ text_field, int offset_x, int of
 		elfSetTextFieldOffset(*text_field->GetHandle(), offset_x, offset_y);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4550,7 +4870,7 @@ void BlendELF::SetTextFieldText(EngineHandle^ text_field, String^ text) {
 		elfSetTextFieldText(*text_field->GetHandle(), toUnmanagedString(text));
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4561,7 +4881,7 @@ EngineHandle^ BlendELF::CreateSlider(String^ name) {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4572,7 +4892,7 @@ EngineHandle^ BlendELF::GetSliderBackgroundTexture(EngineHandle^ slider) {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4583,7 +4903,7 @@ EngineHandle^ BlendELF::GetSliderSliderTexture(EngineHandle^ slider) {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4592,7 +4912,7 @@ float BlendELF::GetSliderValue(EngineHandle^ slider) {
 		return elfGetSliderValue(*slider->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4601,7 +4921,7 @@ void BlendELF::SetSliderBackgroundTexture(EngineHandle^ slider, EngineHandle^ ba
 		elfSetSliderBackgroundTexture(*slider->GetHandle(), *background->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4610,7 +4930,7 @@ void BlendELF::SetSliderSliderTexture(EngineHandle^ slider, EngineHandle^ slider
 		elfSetSliderSliderTexture(*slider->GetHandle(), *slider_texture->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4619,7 +4939,7 @@ void BlendELF::SetSliderValue(EngineHandle^ slider, float value) {
 		elfSetSliderValue(*slider->GetHandle(), value);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4630,7 +4950,7 @@ EngineHandle^ BlendELF::CreateScreen(String^ name) {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4641,7 +4961,7 @@ EngineHandle^ BlendELF::GetScreenTexture(EngineHandle^ screen) {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4650,7 +4970,7 @@ void BlendELF::SetScreenTexture(EngineHandle^ screen, EngineHandle^ texture) {
 		elfSetScreenTexture(*screen->GetHandle(), *texture->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4661,7 +4981,7 @@ EngineHandle^ BlendELF::CreateTextList(String^ name) {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4672,7 +4992,7 @@ EngineHandle^ BlendELF::GetTextListFont(EngineHandle^ text_list) {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4683,7 +5003,7 @@ EngineColour^ BlendELF::GetTextListSelectionColor(EngineHandle^ text_list) {
 		return gcnew EngineColour(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4692,7 +5012,7 @@ int BlendELF::GetTextListRowCount(EngineHandle^ text_list) {
 		return elfGetTextListRowCount(*text_list->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4701,7 +5021,7 @@ int BlendELF::GetTextListItemCount(EngineHandle^ text_list) {
 		return elfGetTextListItemCount(*text_list->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4710,7 +5030,7 @@ int BlendELF::GetTextListSelectionIndex(EngineHandle^ text_list) {
 		return elfGetTextListSelectionIndex(*text_list->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4719,7 +5039,7 @@ int BlendELF::GetTextListOffset(EngineHandle^ text_list) {
 		return elfGetTextListOffset(*text_list->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4728,7 +5048,7 @@ String^ BlendELF::GetTextListItem(EngineHandle^ text_list, int idx) {
 		return gcnew String(elfGetTextListItem(*text_list->GetHandle(), idx));
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4737,7 +5057,7 @@ String^ BlendELF::GetTextListSelectedItem(EngineHandle^ text_list) {
 		return gcnew String(elfGetTextListSelectedItem(*text_list->GetHandle()));
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4746,7 +5066,7 @@ void BlendELF::SetTextListFont(EngineHandle^ text_list, EngineHandle^ font) {
 		elfSetTextListFont(*text_list->GetHandle(), *font->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4755,7 +5075,7 @@ void BlendELF::SetTextListSelectionColor(EngineHandle^ text_list, float r, float
 		elfSetTextListSelectionColor(*text_list->GetHandle(), r, g, b, a);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4764,7 +5084,7 @@ void BlendELF::SetTextListSize(EngineHandle^ text_list, int rows, int width) {
 		elfSetTextListSize(*text_list->GetHandle(), rows, width);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4773,7 +5093,7 @@ void BlendELF::AddTextListItem(EngineHandle^ text_list, String^ text) {
 		elfAddTextListItem(*text_list->GetHandle(), toUnmanagedString(text));
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4782,7 +5102,7 @@ bool BlendELF::RemoveTextListItem(EngineHandle^ text_list, int idx) {
 		return elfRemoveTextListItem(*text_list->GetHandle(), idx);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4791,7 +5111,7 @@ void BlendELF::RemoveTextListItems(EngineHandle^ text_list) {
 		elfRemoveTextListItems(*text_list->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4800,7 +5120,7 @@ void BlendELF::SetTextListOffset(EngineHandle^ text_list, int offset) {
 		elfSetTextListOffset(*text_list->GetHandle(), offset);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4809,7 +5129,7 @@ void BlendELF::SetTextListSelection(EngineHandle^ text_list, int selection) {
 		elfSetTextListSelection(*text_list->GetHandle(), selection);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4820,7 +5140,7 @@ EngineHandle^ BlendELF::CreateCheckBox(String^ name) {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4829,7 +5149,7 @@ bool BlendELF::GetCheckBoxState(EngineHandle^ check_box) {
 		return elfGetCheckBoxState(*check_box->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4840,7 +5160,7 @@ EngineHandle^ BlendELF::GetCheckBoxOffTexture(EngineHandle^ check_box) {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4851,7 +5171,7 @@ EngineHandle^ BlendELF::GetCheckBoxOnTexture(EngineHandle^ check_box) {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4860,7 +5180,7 @@ void BlendELF::SetCheckBoxOffTexture(EngineHandle^ check_box, EngineHandle^ off)
 		elfSetCheckBoxOffTexture(*check_box->GetHandle(), *off->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4869,7 +5189,7 @@ void BlendELF::SetCheckBoxOnTexture(EngineHandle^ check_box, EngineHandle^ on) {
 		elfSetCheckBoxOnTexture(*check_box->GetHandle(), *on->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4878,7 +5198,7 @@ void BlendELF::SetCheckBoxState(EngineHandle^ check_box, bool state) {
 		elfSetCheckBoxState(*check_box->GetHandle(), state);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4889,7 +5209,7 @@ EngineHandle^ BlendELF::CreateGui() {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4898,7 +5218,7 @@ bool BlendELF::AddGuiObject(EngineHandle^ parent, EngineHandle^ object) {
 		return elfAddGuiObject(*parent->GetHandle(), *object->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4909,7 +5229,7 @@ EngineHandle^ BlendELF::GetGuiObjectByName(EngineHandle^ parent, String^ name) {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4920,7 +5240,7 @@ EngineHandle^ BlendELF::GetGuiObjectByIndex(EngineHandle^ parent, int idx) {
 		return gcnew EngineHandle(result);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4929,7 +5249,7 @@ bool BlendELF::RemoveGuiObjectByName(EngineHandle^ parent, String^ name) {
 		return elfRemoveGuiObjectByName(*parent->GetHandle(), toUnmanagedString(name));
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4938,7 +5258,7 @@ bool BlendELF::RemoveGuiObjectByIndex(EngineHandle^ parent, int idx) {
 		return elfRemoveGuiObjectByIndex(*parent->GetHandle(), idx);
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4947,7 +5267,7 @@ bool BlendELF::RemoveGuiObjectByObject(EngineHandle^ parent, EngineHandle^ objec
 		return elfRemoveGuiObjectByObject(*parent->GetHandle(), *object->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
@@ -4956,7 +5276,115 @@ void BlendELF::EmptyGui(EngineHandle^ gui) {
 		elfEmptyGui(*gui->GetHandle());
 	}
 	catch(...) {
-		throw gcnew BlendELFException("BlendELF encountered an unhandled exception. Check elf.log for further details."/*toManagedString(elfGetErrorString())*/);
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
+	}
+}
+
+bool BlendELF::CreateSession(String^ address, unsigned short port) {
+	try {
+		return elfCreateSession(toUnmanagedString(address), port);
+	}
+	catch(...) {
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
+	}
+}
+
+bool BlendELF::ConnectSession(String^ address, unsigned short port) {
+	try {
+		return elfConnectSession(toUnmanagedString(address), port);
+	}
+	catch(...) {
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
+	}
+}
+
+bool BlendELF::DisconnectSession() {
+	try {
+		return elfDisconnectSession();
+	}
+	catch(...) {
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
+	}
+}
+
+void BlendELF::SendStringToClients(String^ message) {
+	try {
+		elfSendStringToClients(toUnmanagedString(message));
+	}
+	catch(...) {
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
+	}
+}
+
+void BlendELF::SendStringToServer(String^ message) {
+	try {
+		elfSendStringToServer(toUnmanagedString(message));
+	}
+	catch(...) {
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
+	}
+}
+
+String^ BlendELF::GetServerDataAsString() {
+	try {
+		return gcnew String(elfGetServerDataAsString());
+	}
+	catch(...) {
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
+	}
+}
+
+String^ BlendELF::GetClientDataAsString() {
+	try {
+		return gcnew String(elfGetClientDataAsString());
+	}
+	catch(...) {
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
+	}
+}
+
+int BlendELF::GetServerEvent() {
+	try {
+		return elfGetServerEvent();
+	}
+	catch(...) {
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
+	}
+}
+
+int BlendELF::GetClientEvent() {
+	try {
+		return elfGetClientEvent();
+	}
+	catch(...) {
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
+	}
+}
+
+int BlendELF::GetCurrentClient() {
+	try {
+		return elfGetCurrentClient();
+	}
+	catch(...) {
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
+	}
+}
+
+bool BlendELF::IsServer() {
+	try {
+		return elfIsServer();
+	}
+	catch(...) {
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
+	}
+}
+
+bool BlendELF::IsClient() {
+	try {
+		return elfIsClient();
+	}
+	catch(...) {
+		throw gcnew BlendELFException(toManagedString(elfGetErrorString()));
 	}
 }
 
